@@ -10,6 +10,11 @@
 		FE16CF611D2AC39200FCC41B /* DfCmd.h in Headers */ = {isa = PBXBuildFile; fileRef = FE16CF601D2AC39200FCC41B /* DfCmd.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FE16CF681D2AC39200FCC41B /* DfCmd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE16CF5D1D2AC39200FCC41B /* DfCmd.framework */; };
 		FE16CF6D1D2AC39200FCC41B /* DfCmdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE16CF6C1D2AC39200FCC41B /* DfCmdTests.swift */; };
+		FE16CF791D2AC45A00FCC41B /* df.c in Sources */ = {isa = PBXBuildFile; fileRef = FE16CF771D2AC45A00FCC41B /* df.c */; };
+		FE16CF7A1D2AC45A00FCC41B /* vfslist.c in Sources */ = {isa = PBXBuildFile; fileRef = FE16CF781D2AC45A00FCC41B /* vfslist.c */; };
+		FE16CF7C1D2AC4AC00FCC41B /* libutil.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FE16CF7B1D2AC4AC00FCC41B /* libutil.tbd */; };
+		FE16CF7F1D2AC51C00FCC41B /* get_compat.h in Headers */ = {isa = PBXBuildFile; fileRef = FE16CF7D1D2AC51C00FCC41B /* get_compat.h */; };
+		FE16CF801D2AC51C00FCC41B /* libutil.h in Headers */ = {isa = PBXBuildFile; fileRef = FE16CF7E1D2AC51C00FCC41B /* libutil.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +34,11 @@
 		FE16CF671D2AC39200FCC41B /* DfCmdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DfCmdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE16CF6C1D2AC39200FCC41B /* DfCmdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DfCmdTests.swift; sourceTree = "<group>"; };
 		FE16CF6E1D2AC39200FCC41B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE16CF771D2AC45A00FCC41B /* df.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = df.c; sourceTree = "<group>"; };
+		FE16CF781D2AC45A00FCC41B /* vfslist.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vfslist.c; sourceTree = "<group>"; };
+		FE16CF7B1D2AC4AC00FCC41B /* libutil.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libutil.tbd; path = usr/lib/libutil.tbd; sourceTree = SDKROOT; };
+		FE16CF7D1D2AC51C00FCC41B /* get_compat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = get_compat.h; sourceTree = "<group>"; };
+		FE16CF7E1D2AC51C00FCC41B /* libutil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libutil.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE16CF7C1D2AC4AC00FCC41B /* libutil.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +64,7 @@
 		FE16CF531D2AC39200FCC41B = {
 			isa = PBXGroup;
 			children = (
+				FE16CF7B1D2AC4AC00FCC41B /* libutil.tbd */,
 				FE16CF5F1D2AC39200FCC41B /* DfCmd */,
 				FE16CF6B1D2AC39200FCC41B /* DfCmdTests */,
 				FE16CF5E1D2AC39200FCC41B /* Products */,
@@ -71,6 +83,10 @@
 		FE16CF5F1D2AC39200FCC41B /* DfCmd */ = {
 			isa = PBXGroup;
 			children = (
+				FE16CF7D1D2AC51C00FCC41B /* get_compat.h */,
+				FE16CF7E1D2AC51C00FCC41B /* libutil.h */,
+				FE16CF771D2AC45A00FCC41B /* df.c */,
+				FE16CF781D2AC45A00FCC41B /* vfslist.c */,
 				FE16CF601D2AC39200FCC41B /* DfCmd.h */,
 				FE16CF621D2AC39200FCC41B /* Info.plist */,
 			);
@@ -94,6 +110,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE16CF611D2AC39200FCC41B /* DfCmd.h in Headers */,
+				FE16CF7F1D2AC51C00FCC41B /* get_compat.h in Headers */,
+				FE16CF801D2AC51C00FCC41B /* libutil.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +212,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE16CF791D2AC45A00FCC41B /* df.c in Sources */,
+				FE16CF7A1D2AC45A00FCC41B /* vfslist.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
