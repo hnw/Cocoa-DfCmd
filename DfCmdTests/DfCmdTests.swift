@@ -27,6 +27,13 @@ class DfCmdTests: XCTestCase {
         //print("cout=\(cmd.cout)")
         //print("cerr=\(cmd.cerr)")
         //print("retval=\(cmd.retval)")
+
+        let cmd2 = DfCmd(["df"])
+        cmd2.exec()
+        //print("cout=\(cmd2.cout)")
+        //print("cerr=\(cmd2.cerr)")
+        //print("retval=\(cmd2.retval)")
+
         XCTAssert(true)
     }
     

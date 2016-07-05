@@ -133,6 +133,7 @@ void	  update_maxwidths(struct maxwidths *, struct statfs *);
 void	  usage(void);
 
 int	aflag = 0, hflag, iflag, nflag;
+int timesthrough;
 
 static __inline int imax(int a, int b)
 {
@@ -179,6 +180,7 @@ main(int argc, char *argv[])
 
 	vfslist = NULL;
 	optind = 1; // initialize for getopt
+	aflag = hflag = iflag = nflag = timesthrough = 0; // initialize global vars
 	while ((ch = getopt(argc, argv, options)) != -1)
 		switch (ch) {
 		case 'a':
@@ -453,7 +455,7 @@ void
 prtstat(struct statfs *sfsp, struct maxwidths *mwp)
 {
 	static long blocksize;
-	static int headerlen, timesthrough;
+	static int headerlen;
 	static const char *header;
 	uint64_t used, availblks, inodes;
 	char * avail_str;
