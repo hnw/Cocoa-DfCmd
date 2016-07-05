@@ -10,7 +10,7 @@ import Foundation
 import CStringArray
 
 public class DfCmd {
-    var arg: CStringArray
+    var args: CStringArray
     var saved_cout: Int32 = -1
     var saved_cerr: Int32 = -1
     var cout_pipe: [Int32] = [-1, -1]
@@ -22,8 +22,10 @@ public class DfCmd {
     public var cerr: String = ""
     public var retval: Int32 = -1
 
-    public init(_ domain: String) {
-        arg = CStringArray(["df", domain, nil])
+    public init(_ _args: [String]) {
+        var tmp: [String?] = _args.map { Optional<String>($0) }
+        tmp.append(nil);
+        args = CStringArray(tmp)
     }
     /// Replacement for FD_ZERO macro
     private func fdZero(inout set: fd_set) {
@@ -157,8 +159,8 @@ public class DfCmd {
         pipe(&ctrl_pipe)
         var thread_arg = [
             UnsafeMutablePointer<Void>(bitPattern: Int(ctrl_pipe[1])),
-            UnsafeMutablePointer<Void>(bitPattern: arg.pointers.count-1),
-            UnsafeMutablePointer<Void>(arg.pointers)
+            UnsafeMutablePointer<Void>(bitPattern: args.pointers.count-1),
+            UnsafeMutablePointer<Void>(args.pointers)
         ]
         saveCout()
         saveCerr()

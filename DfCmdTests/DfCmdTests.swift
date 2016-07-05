@@ -22,7 +22,7 @@ class DfCmdTests: XCTestCase {
     }
     
     func testExample() {
-        let cmd = DfCmd("-h")
+        let cmd = DfCmd(["df", "-h"])
         cmd.exec()
         //print("cout=\(cmd.cout)")
         //print("cerr=\(cmd.cerr)")
