@@ -16,4 +16,4 @@ FOUNDATION_EXPORT const unsigned char DfCmdVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <DfCmd/PublicHeader.h>
 
-
+extern void *df_main_routine(void *_arg);

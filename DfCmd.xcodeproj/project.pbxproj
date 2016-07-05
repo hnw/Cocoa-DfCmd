@@ -15,6 +15,8 @@
 		FE16CF7C1D2AC4AC00FCC41B /* libutil.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FE16CF7B1D2AC4AC00FCC41B /* libutil.tbd */; };
 		FE16CF7F1D2AC51C00FCC41B /* get_compat.h in Headers */ = {isa = PBXBuildFile; fileRef = FE16CF7D1D2AC51C00FCC41B /* get_compat.h */; };
 		FE16CF801D2AC51C00FCC41B /* libutil.h in Headers */ = {isa = PBXBuildFile; fileRef = FE16CF7E1D2AC51C00FCC41B /* libutil.h */; };
+		FE16CF821D2AC61600FCC41B /* DfCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE16CF811D2AC61600FCC41B /* DfCmd.swift */; };
+		FE16CF841D2AC80400FCC41B /* CStringArray.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE16CF831D2AC80400FCC41B /* CStringArray.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +41,8 @@
 		FE16CF7B1D2AC4AC00FCC41B /* libutil.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libutil.tbd; path = usr/lib/libutil.tbd; sourceTree = SDKROOT; };
 		FE16CF7D1D2AC51C00FCC41B /* get_compat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = get_compat.h; sourceTree = "<group>"; };
 		FE16CF7E1D2AC51C00FCC41B /* libutil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libutil.h; sourceTree = "<group>"; };
+		FE16CF811D2AC61600FCC41B /* DfCmd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DfCmd.swift; sourceTree = "<group>"; };
+		FE16CF831D2AC80400FCC41B /* CStringArray.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CStringArray.framework; path = Carthage/Build/iOS/CStringArray.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE16CF841D2AC80400FCC41B /* CStringArray.framework in Frameworks */,
 				FE16CF7C1D2AC4AC00FCC41B /* libutil.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -64,6 +69,7 @@
 		FE16CF531D2AC39200FCC41B = {
 			isa = PBXGroup;
 			children = (
+				FE16CF831D2AC80400FCC41B /* CStringArray.framework */,
 				FE16CF7B1D2AC4AC00FCC41B /* libutil.tbd */,
 				FE16CF5F1D2AC39200FCC41B /* DfCmd */,
 				FE16CF6B1D2AC39200FCC41B /* DfCmdTests */,
@@ -89,6 +95,7 @@
 				FE16CF781D2AC45A00FCC41B /* vfslist.c */,
 				FE16CF601D2AC39200FCC41B /* DfCmd.h */,
 				FE16CF621D2AC39200FCC41B /* Info.plist */,
+				FE16CF811D2AC61600FCC41B /* DfCmd.swift */,
 			);
 			path = DfCmd;
 			sourceTree = "<group>";
@@ -126,6 +133,7 @@
 				FE16CF591D2AC39200FCC41B /* Frameworks */,
 				FE16CF5A1D2AC39200FCC41B /* Headers */,
 				FE16CF5B1D2AC39200FCC41B /* Resources */,
+				FE16CF851D2AC80D00FCC41B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -207,6 +215,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		FE16CF851D2AC80D00FCC41B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/CStringArray.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FE16CF581D2AC39200FCC41B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -214,6 +239,7 @@
 			files = (
 				FE16CF791D2AC45A00FCC41B /* df.c in Sources */,
 				FE16CF7A1D2AC45A00FCC41B /* vfslist.c in Sources */,
+				FE16CF821D2AC61600FCC41B /* DfCmd.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,26 +356,37 @@
 		FE16CF721D2AC39200FCC41B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = DfCmd/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.hnw.DfCmd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		FE16CF731D2AC39200FCC41B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = DfCmd/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
