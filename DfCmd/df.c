@@ -178,6 +178,7 @@ main(int argc, char *argv[])
 	}
 
 	vfslist = NULL;
+	optind = 1; // initialize for getopt
 	while ((ch = getopt(argc, argv, options)) != -1)
 		switch (ch) {
 		case 'a':
