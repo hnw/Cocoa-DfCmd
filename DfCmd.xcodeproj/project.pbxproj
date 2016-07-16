@@ -12,11 +12,12 @@
 		FE16CF6D1D2AC39200FCC41B /* DfCmdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE16CF6C1D2AC39200FCC41B /* DfCmdTests.swift */; };
 		FE16CF791D2AC45A00FCC41B /* df.c in Sources */ = {isa = PBXBuildFile; fileRef = FE16CF771D2AC45A00FCC41B /* df.c */; };
 		FE16CF7A1D2AC45A00FCC41B /* vfslist.c in Sources */ = {isa = PBXBuildFile; fileRef = FE16CF781D2AC45A00FCC41B /* vfslist.c */; };
-		FE16CF7C1D2AC4AC00FCC41B /* libutil.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FE16CF7B1D2AC4AC00FCC41B /* libutil.tbd */; };
 		FE16CF7F1D2AC51C00FCC41B /* get_compat.h in Headers */ = {isa = PBXBuildFile; fileRef = FE16CF7D1D2AC51C00FCC41B /* get_compat.h */; };
 		FE16CF801D2AC51C00FCC41B /* libutil.h in Headers */ = {isa = PBXBuildFile; fileRef = FE16CF7E1D2AC51C00FCC41B /* libutil.h */; };
 		FE16CF821D2AC61600FCC41B /* DfCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE16CF811D2AC61600FCC41B /* DfCmd.swift */; };
-		FE16CF841D2AC80400FCC41B /* CStringArray.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE16CF831D2AC80400FCC41B /* CStringArray.framework */; };
+		FE987D7A1D3A16290023CC0D /* UnixyCmd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE987D791D3A16290023CC0D /* UnixyCmd.framework */; };
+		FE987D7B1D3A169A0023CC0D /* libutil.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FE16CF7B1D2AC4AC00FCC41B /* libutil.tbd */; };
+		FE987D7E1D3A1DE40023CC0D /* CStringArray.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE16CF831D2AC80400FCC41B /* CStringArray.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		FE16CF7E1D2AC51C00FCC41B /* libutil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libutil.h; sourceTree = "<group>"; };
 		FE16CF811D2AC61600FCC41B /* DfCmd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DfCmd.swift; sourceTree = "<group>"; };
 		FE16CF831D2AC80400FCC41B /* CStringArray.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CStringArray.framework; path = Carthage/Build/iOS/CStringArray.framework; sourceTree = "<group>"; };
+		FE987D791D3A16290023CC0D /* UnixyCmd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UnixyCmd.framework; path = Carthage/Build/iOS/UnixyCmd.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,8 +52,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE16CF841D2AC80400FCC41B /* CStringArray.framework in Frameworks */,
-				FE16CF7C1D2AC4AC00FCC41B /* libutil.tbd in Frameworks */,
+				FE987D7E1D3A1DE40023CC0D /* CStringArray.framework in Frameworks */,
+				FE987D7B1D3A169A0023CC0D /* libutil.tbd in Frameworks */,
+				FE987D7A1D3A16290023CC0D /* UnixyCmd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +72,7 @@
 		FE16CF531D2AC39200FCC41B = {
 			isa = PBXGroup;
 			children = (
+				FE987D791D3A16290023CC0D /* UnixyCmd.framework */,
 				FE16CF831D2AC80400FCC41B /* CStringArray.framework */,
 				FE16CF7B1D2AC4AC00FCC41B /* libutil.tbd */,
 				FE16CF5F1D2AC39200FCC41B /* DfCmd */,
@@ -223,6 +227,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/CStringArray.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/UnixyCmd.framework",
 			);
 			outputPaths = (
 			);
@@ -435,6 +440,7 @@
 				FE16CF731D2AC39200FCC41B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FE16CF741D2AC39200FCC41B /* Build configuration list for PBXNativeTarget "DfCmdTests" */ = {
 			isa = XCConfigurationList;
@@ -443,6 +449,7 @@
 				FE16CF761D2AC39200FCC41B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

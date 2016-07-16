@@ -140,26 +140,12 @@ static __inline int imax(int a, int b)
 	return (a > b ? a : b);
 }
 
+#include <unistd.h>
 #include <pthread.h>
-#define SHUTDOWN() write(ctrl_fd, "\n", sizeof("\n"))
-#define exit(retval) {SHUTDOWN(); pthread_exit((void *)retval);}
-
-int ctrl_fd = -1;
-int main(int argc, char *argv[]);
-
-void *df_main_routine(void *_arg)
-{
-    void **arg = (void **)_arg;
-    int argc = (int)arg[1];
-    char **argv = (char**)arg[2];
-    ctrl_fd = (int)arg[0];
-    void *retval = (void *)(long)main(argc, argv);
-    SHUTDOWN();
-    return retval;
-}
+#define exit(retval) {close(STDOUT_FILENO);close(STDERR_FILENO);pthread_exit((void *)retval);}
 
 int
-main(int argc, char *argv[])
+df_main(int argc, char *argv[])
 {
 	struct stat stbuf;
 	struct statfs statfsbuf, *mntbuf;
