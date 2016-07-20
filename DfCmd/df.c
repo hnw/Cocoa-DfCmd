@@ -143,10 +143,10 @@ static __inline int imax(int a, int b)
 #include <stdio.h>
 #include <unistd.h>
 #include <pthread.h>
-static inline void exit(retval) {fflush(stdout);close(STDOUT_FILENO);fflush(std
-err);close(STDERR_FILENO);pthread_exit((void *)retval);}
-int
+#define exit unixycmd_exit
+static inline void unixycmd_exit(retval) {fflush(stdout);close(STDOUT_FILENO);fflush(stderr);close(STDERR_FILENO);pthread_exit((void *)retval);}
 
+int
 df_main(int argc, char *argv[])
 {
 	struct stat stbuf;
